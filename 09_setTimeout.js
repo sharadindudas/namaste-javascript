@@ -1,38 +1,45 @@
+//! We have to write a timer function that counts till 5
+
+/*
+setTimeout => () => { console.log("Count: ", i) } // 1000ms -> 1s
+setTimeout => () => { console.log("Count: ", i) } // 2000ms -> 2s
+setTimeout => () => { console.log("Count: ", i) } // 3000ms -> 3s
+setTimeout => () => { console.log("Count: ", i) } // 4000ms -> 4s
+setTimeout => () => { console.log("Count: ", i) } // 5000ms -> 5s
+*/
+
 //! Using var (problem)
-// function x() {
-//   for (var i = 1; i <= 5; i++) {
-//     console.log("Iteration: ", i);
-//     setTimeout(() => {
-//       console.log(i);
-//     }, i * 1000);
-//   }
-//   console.log("Namaste Javascript");
+// function timer() {
+//     for (var i = 1; i <= 5; i++) {
+//         setTimeout(() => {
+//             console.log("Count: ", i);
+//         }, i * 1000);
+//     }
+//     console.log("Timer works !!!");
 // }
-// x();
 
-//! Using let
-// function x() {
-//   for (let i = 1; i <= 5; i++) {
-//     console.log("Iteration: ", i);
-//     setTimeout(() => {
-//       console.log(i);
-//     }, i * 1000);
-//   }
-//   console.log("Namaste Javascript");
+//! Using let (1st solution)
+// function timer() {
+//     for (let i = 1; i <= 5; i++) {
+//         setTimeout(() => {
+//             console.log("Count: ", i);
+//         }, i * 1000);
+//     }
+//     console.log("Timer works !!!");
 // }
-// x();
 
-//! Using var (fix)
-function x() {
-  for (var i = 1; i <= 5; i++) {
-    console.log("Iteration: ", i);
-    function close(x) {
-      setTimeout(() => {
-        console.log("Callback function called: ", x);
-      }, x * 1000);
+//! Using var (2nd solution)
+function timer() {
+    for (var i = 1; i <= 5; i++) {
+        count(i);
     }
-    close(i);
-  }
-  console.log("Namaste Javascript");
+
+    function count(x) {
+        setTimeout(() => {
+            console.log("Count: ", x);
+        }, x * 1000);
+    }
+
+    console.log("Timer works !!!");
 }
-x();
+timer();
